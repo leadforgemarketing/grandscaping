@@ -100,7 +100,13 @@
     background: var(--white); color: var(--ink); padding: 10px 14px; border-radius: 6px;
   }
   .skip:focus { top: 12px; }
-  .wrap { width: min(1140px, calc(100% - 32px)); margin-inline: auto; }
+  .wrap {
+    width: min(1200px, 100%);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
   header {
     position: sticky; top: 0; z-index: 40;
@@ -144,14 +150,30 @@
     content: ""; position: absolute; inset: 0;
     background: linear-gradient(180deg, rgba(18,18,18,.35) 0%, rgba(18,18,18,.55) 42%, rgba(18,18,18,.82) 100%);
   }
-  .hero-copy { position: relative; z-index: 1; padding: 88px 0 56px; width: min(1140px, calc(100% - 32px)); }
+  .hero-copy {
+    position: relative; z-index: 1;
+    width: min(1200px, calc(100% - 40px));
+    margin-left: auto; margin-right: auto;
+    padding: 88px 0 56px; text-align: center;
+  }
   .eyebrow {
     color: var(--gold-deep); font-size: .78rem; font-weight: 700;
     letter-spacing: .16em; text-transform: uppercase; margin-bottom: 10px;
   }
   .hero .eyebrow { color: var(--gold-soft); }
-  h1 { font-size: clamp(2.35rem, 7vw, 4.7rem); max-width: 16ch; margin: 0 auto 16px; }
-  .lede { font-size: 1.08rem; max-width: 40rem; margin-inline: auto; color: #f4efe6; margin-bottom: 28px; }
+  h1 {
+    font-size: clamp(2.45rem, 5vw, 4.15rem);
+    width: min(16em, 100%);
+    margin: 0 auto 16px;
+    text-align: center;
+  }
+  .lede {
+    font-size: 1.08rem;
+    width: min(46rem, 100%);
+    margin: 0 auto 28px;
+    color: #f4efe6;
+    text-align: center;
+  }
   .cta-row { display: flex; flex-direction: column; gap: 10px; }
   .cta-row .btn { width: 100%; }
   .btn {
@@ -180,13 +202,22 @@
   .trust p { color: var(--gold-soft); font-size: .95rem; }
 
   section { padding: 72px 0; }
-  .section-head { text-align: center; max-width: 40rem; margin: 0 auto 36px; }
+  .section-head {
+    width: 100%;
+    margin: 0 0 36px;
+    text-align: center;
+  }
   .section-head h2, .band h2, .areas h2, .contact h2 {
-    font-size: clamp(2rem, 4vw, 3.1rem); margin-bottom: 12px;
+    font-size: clamp(2rem, 4vw, 3.1rem); margin: 0 auto 12px; text-align: center;
+  }
+  .section-head p, .areas p, .band p, .contact-lead {
+    width: min(42rem, 100%);
+    margin-left: auto; margin-right: auto;
+    text-align: center;
   }
   .section-head p { color: var(--muted); font-size: 1.05rem; }
 
-  .grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  .grid { display: grid; grid-template-columns: 1fr; gap: 18px; width: 100%; }
   .card {
     background: var(--white); border: 1px solid var(--line); border-radius: 16px;
     overflow: hidden; box-shadow: 0 10px 28px rgba(42, 42, 42, .05);
@@ -195,7 +226,7 @@
   }
   .card-media { overflow: hidden; background: var(--cream-2); }
   .card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .35s ease; }
-  .card-body { padding: 18px 18px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .card-body { padding: 18px 18px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; text-align: center; }
   .card h3 { font-size: 1.45rem; }
   .card p { color: var(--muted); font-size: .98rem; }
   .card:hover { transform: translateY(-4px); border-color: #d7c29a; box-shadow: 0 18px 40px rgba(42, 42, 42, .12); }
@@ -208,14 +239,15 @@
     color: var(--cream); text-align: center;
   }
   .band .eyebrow { color: var(--gold-soft); }
-  .band p { max-width: 36rem; margin: 0 auto 22px; color: #f4efe6; }
+  .band p { color: #f4efe6; margin-bottom: 22px; }
   .band .cta-row { justify-content: center; }
   .band :focus-visible { outline-color: var(--cream); }
 
-  .steps { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .steps { display: grid; grid-template-columns: 1fr; gap: 14px; width: 100%; }
   .step {
     background: var(--white); border: 1px solid var(--line); border-radius: 16px;
     padding: 22px 20px 24px; box-shadow: 0 10px 24px rgba(42, 42, 42, .04);
+    text-align: center;
   }
   .step-no {
     font-family: Fraunces, Palatino, Georgia, serif; color: var(--gold-deep);
@@ -225,7 +257,7 @@
   .step p { color: var(--muted); }
 
   .gallery { background: var(--cream-2); }
-  .gallery-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .gallery-grid { display: grid; grid-template-columns: 1fr; gap: 12px; width: 100%; }
   .shot { position: relative; margin: 0; border-radius: 16px; overflow: hidden; min-height: 220px; }
   .shot img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; }
   .shot figcaption {
@@ -235,17 +267,17 @@
   }
 
   .why { background: var(--white); }
-  .reasons { list-style: none; display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .reasons { list-style: none; display: grid; grid-template-columns: 1fr; gap: 14px; width: 100%; }
   .reasons li {
     background: var(--cream); border-radius: 16px; padding: 22px 20px;
-    border-top: 3px solid var(--gold);
+    border-top: 3px solid var(--gold); text-align: center;
   }
   .reasons h3 { font-size: 1.3rem; margin-bottom: 6px; }
   .reasons p { color: var(--muted); }
 
   .areas { background: var(--cream-2); text-align: center; padding: 64px 0; }
   .areas .eyebrow { margin-bottom: 8px; }
-  .areas h2 { max-width: 16ch; margin-inline: auto; }
+  .areas h2 { width: min(16em, 100%); }
   .areas p { color: var(--muted); margin-top: 12px; }
 
   .contact {
@@ -255,8 +287,8 @@
     color: var(--cream); text-align: center;
   }
   .contact .eyebrow { color: var(--gold-soft); }
-  .contact .contact-lead { color: #f4efe6; max-width: 36rem; margin: 0 auto 28px; }
-  .contact-actions { display: grid; gap: 12px; }
+  .contact .contact-lead { color: #f4efe6; margin-bottom: 28px; }
+  .contact-actions { display: grid; gap: 12px; width: min(820px, 100%); margin-left: auto; margin-right: auto; }
   .contact-actions a {
     display: flex; flex-direction: column; gap: 4px; justify-content: center;
     text-decoration: none; color: var(--cream); min-height: 92px; padding: 16px 18px;
@@ -272,7 +304,7 @@
   .contact :focus-visible { outline-color: var(--cream); }
 
   footer { background: var(--cream); border-top: 1px solid var(--line); padding: 36px 0 28px; }
-  .footer-grid { display: grid; gap: 18px; text-align: center; }
+  .footer-grid { display: grid; gap: 18px; width: 100%; text-align: center; justify-items: center; }
   .footer-brand img { height: 48px; width: auto; margin-inline: auto; }
   .footer-links { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; }
   .footer-links a { font-weight: 700; text-decoration: none; }
@@ -281,7 +313,7 @@
 
   .call-dock {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 45;
-    display: grid; grid-template-columns: 1.4fr .8fr;
+    display: grid; grid-template-columns: 1.5fr .9fr;
     box-shadow: 0 -8px 24px rgba(28, 28, 28, .18);
   }
   .call-dock a {
@@ -303,10 +335,8 @@
     .shot:first-child { grid-column: 1 / -1; }
     .shot:first-child img { aspect-ratio: 16 / 8; }
     .contact-actions { grid-template-columns: 1fr 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; align-items: center; text-align: left; }
-    .footer-brand img { margin-inline: 0; }
-    .footer-links { justify-content: flex-end; }
-    .legal { grid-column: 1 / -1; text-align: center; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .legal { text-align: center; }
   }
   @media (min-width: 980px) {
     html { scroll-padding-top: 96px; }
@@ -388,23 +418,23 @@
       <p class="lede">Grand Scaping installs block paving, resin and gravel driveways, patios, fencing, pergolas, decking and turf for homes and businesses across Teesside and the North East.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="tel:+441642040493">Call 01642 040493</a>
-        <a class="btn btn-ghost" href="mailto:andy@grandscaping.co.uk">Email andy@grandscaping.co.uk</a>
+        <a class="btn btn-ghost" href="mailto:andy@grandscaping.co.uk?subject=Free%20quote">Get a free quote</a>
       </div>
     </div>
   </section>
 
   <div class="trust" aria-label="At a glance">
     <article>
-      <strong>Homes and businesses</strong>
-      <p>Domestic and commercial driveways</p>
+      <strong>Free quotes</strong>
+      <p>Ask and we will quote the job</p>
+    </article>
+    <article>
+      <strong>Domestic and commercial</strong>
+      <p>Homes and business premises</p>
     </article>
     <article>
       <strong>Teesside and the North East</strong>
-      <p>Local landscaping and driveway work</p>
-    </article>
-    <article>
-      <strong>Andy and Lee</strong>
-      <p>You speak to the people who run it</p>
+      <p>Driveways and landscaping across the area</p>
     </article>
   </div>
 
@@ -481,7 +511,7 @@
       <p>Call or email Andy with the driveway, patio or garden you have in mind. We cover Teesside and the North East.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="tel:+441642040493">Call 01642 040493</a>
-        <a class="btn btn-ghost" href="mailto:andy@grandscaping.co.uk">Email us</a>
+        <a class="btn btn-ghost" href="mailto:andy@grandscaping.co.uk?subject=Free%20quote">Get a free quote</a>
       </div>
     </div>
   </section>
@@ -501,7 +531,7 @@
         <article class="step">
           <span class="step-no">02</span>
           <h3>Visit and quote</h3>
-          <p>We look at the space and talk through the work and a quote before anything is built.</p>
+          <p>We look at the space and send a free quote before anything is built.</p>
         </article>
         <article class="step">
           <span class="step-no">03</span>
@@ -587,7 +617,7 @@
       <p>01642 040493 or andy@grandscaping.co.uk. Tell us about the space and we will take it from there.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="tel:+441642040493">Call 01642 040493</a>
-        <a class="btn btn-ghost" href="mailto:andy@grandscaping.co.uk">Email andy@grandscaping.co.uk</a>
+        <a class="btn btn-ghost" href="mailto:andy@grandscaping.co.uk?subject=Free%20quote">Get a free quote</a>
       </div>
     </div>
   </section>
@@ -595,8 +625,8 @@
   <section class="contact" id="contact">
     <div class="wrap">
       <p class="eyebrow">Contact</p>
-      <h2>Call or email</h2>
-      <p class="contact-lead">Tell us about the driveway, patio or garden you have in mind. We cover Teesside and the North East.</p>
+      <h2>Ask for a free quote</h2>
+      <p class="contact-lead">Call or email Andy about the driveway, patio or garden you have in mind. We cover Teesside and the North East.</p>
       <div class="contact-actions">
         <a href="tel:+441642040493">
           <span>Phone</span>
@@ -628,7 +658,7 @@
 
 <div class="call-dock">
   <a class="dock-call" href="tel:+441642040493">Call 01642 040493</a>
-  <a class="dock-mail" href="mailto:andy@grandscaping.co.uk">Email</a>
+  <a class="dock-mail" href="mailto:andy@grandscaping.co.uk?subject=Free%20quote">Free quote</a>
 </div>
 </body>
 </html>
