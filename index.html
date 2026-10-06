@@ -109,36 +109,78 @@
   }
 
   header {
-    position: sticky; top: 0; z-index: 40;
+    position: sticky; top: 0; z-index: 60;
     background: rgba(247, 244, 238, .94);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
     box-shadow: 0 8px 24px rgba(36, 31, 26, .04);
   }
   .header-bar {
-    display: grid; grid-template-columns: 1fr auto; grid-template-areas: "brand call" "nav nav";
-    align-items: center; gap: 10px 16px; padding: 10px 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "brand tools";
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
   }
-  .brand { grid-area: brand; display: flex; align-items: center; }
-  .brand img { height: 42px; width: auto; }
-  .header-call { grid-area: call; }
-  nav { grid-area: nav; }
-  nav ul {
-    list-style: none; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px;
-  }
-  nav a {
-    text-decoration: none; font-weight: 600; font-size: .92rem; color: var(--ink);
-    border-bottom: 2px solid transparent; padding: 4px 0;
-  }
-  nav a:hover { border-bottom-color: var(--gold); }
+  .brand { grid-area: brand; display: flex; align-items: center; min-width: 0; }
+  .brand img { display: block; height: auto; width: auto; max-height: 42px; max-width: 100%; }
+  .header-tools { grid-area: tools; display: flex; align-items: center; gap: 8px; }
   .header-call {
-    display: inline-flex; align-items: center; gap: 8px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
     background: var(--deep); color: var(--cream); text-decoration: none;
-    font-weight: 700; border-radius: 999px; min-height: 44px; padding: 8px 16px;
+    font-weight: 700; border-radius: 999px;
+    width: 44px; height: 44px; min-width: 44px; min-height: 44px; padding: 0;
+    flex-shrink: 0;
   }
   .header-call:hover { background: var(--deep-2); }
   .header-call svg { display: block; }
-  .call-number { display: none; }
+  .header-call .call-label,
+  .header-call .call-number { display: none; }
+  .menu-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px; min-width: 44px; min-height: 44px;
+    padding: 0; flex-shrink: 0; cursor: pointer;
+    border: 1px solid var(--line); border-radius: 8px;
+    background: var(--white); color: var(--ink);
+  }
+  .menu-toggle:hover { border-color: var(--gold); }
+  .menu-icon {
+    position: relative; display: block; width: 18px; height: 2px;
+    background: currentColor; border-radius: 1px;
+  }
+  .menu-icon::before,
+  .menu-icon::after {
+    content: ""; position: absolute; left: 0; width: 18px; height: 2px;
+    background: currentColor; border-radius: 1px;
+    transition: transform .18s ease, top .18s ease;
+  }
+  .menu-icon::before { top: -6px; }
+  .menu-icon::after { top: 6px; }
+  .menu-toggle[aria-expanded="true"] .menu-icon { background: transparent; }
+  .menu-toggle[aria-expanded="true"] .menu-icon::before { top: 0; transform: rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] .menu-icon::after { top: 0; transform: rotate(-45deg); }
+  nav {
+    display: none;
+    position: fixed; z-index: 50;
+    left: 0; right: 0; bottom: 0;
+    background: var(--cream);
+    overflow: auto;
+    padding: 8px 20px 28px;
+  }
+  nav.is-open { display: block; }
+  nav ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
+  nav a {
+    display: flex; align-items: center; min-height: 52px;
+    text-decoration: none; font-weight: 600; font-size: 1.125rem; color: var(--ink);
+    border-bottom: 1px solid var(--line); padding: 8px 4px;
+  }
+  nav a:hover { color: var(--gold-deep); }
+  .nav-cta { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+  .nav-cta a { justify-content: center; border-bottom: 0; border-radius: 8px; min-height: 52px; }
+  .nav-call { background: var(--gold-soft); color: var(--ink); }
+  .nav-quote { background: var(--deep); color: var(--cream); }
+  body.menu-open { overflow: hidden; }
 
   .hero {
     position: relative; min-height: 620px; display: flex; align-items: flex-end; justify-content: center;
@@ -324,7 +366,7 @@
   .call-dock .dock-mail { background: var(--deep); color: var(--cream); }
 
   @media (min-width: 700px) {
-    .brand img { height: 52px; }
+    .brand img { max-height: 52px; }
     .cta-row { flex-direction: row; flex-wrap: wrap; justify-content: center; }
     .cta-row .btn { width: auto; }
     .trust { grid-template-columns: 1fr 1fr 1fr; }
@@ -338,15 +380,33 @@
     .footer-grid { grid-template-columns: 1fr; }
     .legal { text-align: center; }
   }
+  @media (min-width: 860px) {
+    .menu-toggle { display: none; }
+    .header-call { width: auto; height: auto; min-width: 0; padding: 8px 16px; }
+    .header-call .call-label { display: inline; }
+    .header-bar { grid-template-areas: "brand tools" "nav nav"; gap: 10px 16px; }
+    nav {
+      display: block; position: static; grid-area: nav;
+      background: transparent; overflow: visible; padding: 0;
+    }
+    nav ul { flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; }
+    nav a {
+      min-height: 0; font-size: .92rem; padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+    nav a:hover { border-bottom-color: var(--gold); color: var(--ink); }
+    .nav-cta { display: none; }
+    body.menu-open { overflow: visible; }
+  }
   @media (min-width: 980px) {
     html { scroll-padding-top: 96px; }
     .header-bar {
-      grid-template-columns: auto 1fr auto;
-      grid-template-areas: "brand nav call";
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      grid-template-areas: "brand nav tools";
       padding: 12px 0;
     }
     nav ul { justify-content: flex-end; gap: 26px; flex-wrap: nowrap; }
-    .call-number { display: inline; }
+    .header-call .call-number { display: inline; }
     .hero { min-height: 720px; align-items: center; }
     .hero-copy { padding: 96px 0; }
     .lede { font-size: 1.18rem; }
@@ -358,12 +418,16 @@
     .shot:first-child img { aspect-ratio: auto; height: 100%; min-height: 460px; }
     .call-dock { display: none; }
   }
+  @media (max-width: 859px) {
+    html { scroll-padding-top: 76px; }
+    header { background: var(--cream); backdrop-filter: none; }
+  }
   @media (max-width: 979px) {
     body { padding-bottom: 58px; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .card, .card img { transition: none; }
+    .card, .card img, .menu-icon::before, .menu-icon::after { transition: none; }
     .card:hover { transform: none; }
     .card:hover img { transform: none; }
   }
@@ -382,7 +446,7 @@
     <a class="brand" href="#top">
       <img src="assets/images/logo.webp" alt="Grand Scaping, Landscaping N.E" width="1200" height="223">
     </a>
-    <nav aria-label="Page">
+    <nav id="site-nav" aria-label="Page">
       <ul>
         <li><a href="#services">Services</a></li>
         <li><a href="#how">How it works</a></li>
@@ -390,12 +454,21 @@
         <li><a href="#why">Why us</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <div class="nav-cta">
+        <a class="nav-call" href="tel:+441642040493">Call 01642 040493</a>
+        <a class="nav-quote" href="mailto:andy@grandscaping.co.uk?subject=Free%20quote">Free quote</a>
+      </div>
     </nav>
-    <a class="header-call" href="tel:+441642040493">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      <span>Call</span>
-      <span class="call-number">01642 040493</span>
-    </a>
+    <div class="header-tools">
+      <a class="header-call" href="tel:+441642040493" aria-label="Call 01642 040493">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="call-label">Call</span>
+        <span class="call-number">01642 040493</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <span class="menu-icon" aria-hidden="true"></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -526,7 +599,7 @@
         <article class="step">
           <span class="step-no">01</span>
           <h3>Enquire</h3>
-          <p>Call or email and tell us what you want done. You will be speaking to Andy or Lee.</p>
+          <p>Call or email and tell us what you want done. You will be speaking to Andy Cook.</p>
         </article>
         <article class="step">
           <span class="step-no">02</span>
@@ -579,7 +652,7 @@
       <div class="section-head">
         <p class="eyebrow">About</p>
         <h2>Why choose us</h2>
-        <p>Grand Scaping is a landscaping and driveways business in the North East, run by Andy (A. J. Cook) and Lee.</p>
+        <p>Grand Scaping is a landscaping and driveways business in the North East, run by Andy Cook.</p>
       </div>
       <ul class="reasons">
         <li>
@@ -595,8 +668,8 @@
           <p>Driveways, patios, fencing, pergolas, decking, turf and general landscaping.</p>
         </li>
         <li>
-          <h3>Speak to Andy or Lee</h3>
-          <p>Call or email and you are in touch with the people who run the business.</p>
+          <h3>Speak to Andy</h3>
+          <p>Call or email and you deal directly with Andy.</p>
         </li>
       </ul>
     </div>
@@ -660,5 +733,40 @@
   <a class="dock-call" href="tel:+441642040493">Call 01642 040493</a>
   <a class="dock-mail" href="mailto:andy@grandscaping.co.uk?subject=Free%20quote">Free quote</a>
 </div>
+<script>
+  (function () {
+    var button = document.querySelector(".menu-toggle");
+    var nav = document.getElementById("site-nav");
+    var header = document.querySelector("header");
+    if (!button || !nav || !header) return;
+
+    function place() {
+      nav.style.top = header.offsetHeight + "px";
+    }
+
+    function setOpen(open) {
+      if (window.innerWidth >= 860) open = false;
+      nav.classList.toggle("is-open", open);
+      button.setAttribute("aria-expanded", open ? "true" : "false");
+      button.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      document.body.classList.toggle("menu-open", open);
+      if (open) place();
+    }
+
+    button.addEventListener("click", function () {
+      setOpen(button.getAttribute("aria-expanded") !== "true");
+    });
+    nav.addEventListener("click", function (event) {
+      if (event.target.closest("a")) setOpen(false);
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") setOpen(false);
+    });
+    window.addEventListener("resize", function () {
+      place();
+      if (window.innerWidth >= 860) setOpen(false);
+    });
+  })();
+</script>
 </body>
 </html>
