@@ -18,10 +18,13 @@
 <meta name="twitter:title" content="Grand Scaping | Landscaping and Driveways in Teesside">
 <meta name="twitter:description" content="Block paving, resin and gravel driveways, patios, fencing, pergolas, decking and turf across Teesside and the North East.">
 <meta name="twitter:image" content="https://grandscaping.co.uk/assets/images/og.jpg">
-<meta name="theme-color" content="#f7f4ee">
+<meta name="theme-color" content="#2c2c2c">
 <meta name="format-detection" content="telephone=no">
 <link rel="icon" href="assets/images/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,650&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/images/hero.webp" imagesrcset="assets/images/hero-800.webp 800w, assets/images/hero.webp 1280w" imagesizes="100vw" fetchpriority="high">
 <script type="application/ld+json">
 {
@@ -59,329 +62,280 @@
 <style>
   :root {
     --charcoal: #4a4a4a;
-    --ink: #2a2a2a;
+    --ink: #241f1a;
     --deep: #2c2c2c;
+    --deep-2: #1c1c1c;
     --gold: #b8862f;
     --gold-deep: #7a5c1c;
     --gold-soft: #e8d7b0;
     --cream: #f7f4ee;
-    --cream-2: #efeae0;
+    --cream-2: #efe6d6;
     --white: #fffcf8;
-    --line: #e3dcd0;
+    --line: #e4d9c8;
     --muted: #4e4942;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 132px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 148px; }
   body {
-    font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    font-family: Outfit, "Segoe UI", system-ui, sans-serif;
     color: var(--ink);
-    background: var(--cream);
+    background:
+      radial-gradient(900px 420px at 50% -80px, rgba(184, 134, 47, .16), transparent 60%),
+      var(--cream);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
-  img { max-width: 100%; height: auto; }
+  img { max-width: 100%; height: auto; display: block; }
   h1, h2, h3 {
-    font-family: "Iowan Old Style", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
-    font-weight: 600;
-    line-height: 1.15;
+    font-family: Fraunces, "Iowan Old Style", Palatino, Georgia, serif;
+    font-weight: 560;
+    line-height: 1.12;
     text-wrap: balance;
   }
   p { text-wrap: pretty; }
   a { color: inherit; }
-  :focus-visible {
-    outline: 3px solid var(--gold-deep);
-    outline-offset: 3px;
-  }
+  :focus-visible { outline: 3px solid var(--gold-deep); outline-offset: 3px; }
   .skip {
-    position: absolute;
-    left: 12px;
-    top: -48px;
-    background: var(--white);
-    color: var(--ink);
-    padding: 10px 14px;
-    z-index: 100;
-    border-radius: 6px;
+    position: absolute; left: 12px; top: -48px; z-index: 100;
+    background: var(--white); color: var(--ink); padding: 10px 14px; border-radius: 6px;
   }
   .skip:focus { top: 12px; }
-  .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
-  .eyebrow {
-    color: var(--gold-deep);
-    font-size: .75rem;
-    font-weight: 700;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
+  .wrap { width: min(1140px, calc(100% - 32px)); margin-inline: auto; }
 
   header {
-    position: sticky;
-    top: 0;
-    z-index: 40;
+    position: sticky; top: 0; z-index: 40;
     background: rgba(247, 244, 238, .94);
-    backdrop-filter: blur(10px);
-    border-top: 4px solid var(--gold);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
+    box-shadow: 0 8px 24px rgba(36, 31, 26, .04);
   }
   .header-bar {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-areas: "brand call" "nav nav";
-    align-items: center;
-    gap: 8px 12px;
-    padding: 10px 0 12px;
+    display: grid; grid-template-columns: 1fr auto; grid-template-areas: "brand call" "nav nav";
+    align-items: center; gap: 10px 16px; padding: 10px 0;
   }
   .brand { grid-area: brand; display: flex; align-items: center; }
-  .brand img { height: 36px; width: auto; display: block; }
+  .brand img { height: 42px; width: auto; }
+  .header-call { grid-area: call; }
   nav { grid-area: nav; }
   nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    list-style: none; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px;
   }
   nav a {
-    display: inline-block;
-    text-decoration: none;
-    color: var(--ink);
-    font-weight: 600;
-    font-size: .92rem;
-    padding: 6px 0;
-    border-bottom: 2px solid transparent;
+    text-decoration: none; font-weight: 600; font-size: .92rem; color: var(--ink);
+    border-bottom: 2px solid transparent; padding: 4px 0;
   }
   nav a:hover { border-bottom-color: var(--gold); }
   .header-call {
-    grid-area: call;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--deep);
-    color: var(--cream);
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 999px;
-    min-height: 44px;
-    padding: 8px 14px;
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--deep); color: var(--cream); text-decoration: none;
+    font-weight: 700; border-radius: 999px; min-height: 44px; padding: 8px 16px;
   }
-  .header-call:hover { background: #1f1f1f; }
+  .header-call:hover { background: var(--deep-2); }
   .header-call svg { display: block; }
   .call-number { display: none; }
 
   .hero {
-    position: relative;
-    min-height: 560px;
-    display: flex;
-    align-items: flex-end;
-    color: var(--cream);
-    background: var(--deep);
-    overflow: hidden;
+    position: relative; min-height: 620px; display: flex; align-items: flex-end; justify-content: center;
+    color: var(--cream); background: var(--deep); overflow: hidden; text-align: center;
   }
   .hero-media { position: absolute; inset: 0; }
-  .hero-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 60%;
-  }
+  .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
   .hero-media::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(28,28,28,.28) 0%, rgba(22,22,22,.62) 46%, rgba(18,18,18,.82) 100%);
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(18,18,18,.35) 0%, rgba(18,18,18,.55) 42%, rgba(18,18,18,.82) 100%);
   }
-  .hero-copy {
-    position: relative;
-    z-index: 1;
-    padding: 72px 0 48px;
-    max-width: 680px;
+  .hero-copy { position: relative; z-index: 1; padding: 88px 0 56px; width: min(1140px, calc(100% - 32px)); }
+  .eyebrow {
+    color: var(--gold-deep); font-size: .78rem; font-weight: 700;
+    letter-spacing: .16em; text-transform: uppercase; margin-bottom: 10px;
   }
   .hero .eyebrow { color: var(--gold-soft); }
-  .hero h1 {
-    font-size: clamp(2.05rem, 7vw, 3.7rem);
-    margin-bottom: 16px;
-    max-width: 14ch;
-  }
-  .lede {
-    font-size: 1.05rem;
-    color: #f4efe6;
-    max-width: 38rem;
-    margin-bottom: 28px;
-  }
+  h1 { font-size: clamp(2.35rem, 7vw, 4.7rem); max-width: 16ch; margin: 0 auto 16px; }
+  .lede { font-size: 1.08rem; max-width: 40rem; margin-inline: auto; color: #f4efe6; margin-bottom: 28px; }
   .cta-row { display: flex; flex-direction: column; gap: 10px; }
+  .cta-row .btn { width: 100%; }
   .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    padding: 12px 18px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
-    letter-spacing: .01em;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 52px; padding: 12px 22px; border-radius: 8px;
+    text-decoration: none; font-weight: 700; letter-spacing: .01em;
   }
-  .btn-primary { background: var(--cream); color: var(--ink); }
+  .btn-primary { background: var(--gold-soft); color: var(--ink); }
   .btn-primary:hover { background: #fff; }
-  .btn-ghost {
-    color: var(--cream);
-    border: 1.5px solid rgba(247, 244, 238, .85);
-    background: transparent;
-  }
+  .btn-ghost { color: var(--cream); border: 1.5px solid rgba(232, 215, 176, .85); background: transparent; }
   .btn-ghost:hover { background: rgba(247, 244, 238, .12); }
   .hero :focus-visible { outline-color: var(--cream); }
 
-  section { padding: 64px 0; }
-  .section-head { margin-bottom: 28px; max-width: 40rem; }
-  .section-head h2, .why h2, .areas h2, .contact h2 {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    color: var(--ink);
-    margin-bottom: 12px;
+  .trust {
+    background: var(--deep); color: var(--cream);
+    display: grid; grid-template-columns: 1fr;
   }
-  .section-head p, .why-intro p { color: var(--muted); font-size: 1.05rem; }
+  .trust article {
+    padding: 22px 18px; text-align: center;
+    border-top: 1px solid rgba(232, 215, 176, .22);
+  }
+  .trust strong {
+    display: block; font-family: Fraunces, Palatino, Georgia, serif;
+    font-size: 1.25rem; font-weight: 560; margin-bottom: 4px;
+  }
+  .trust p { color: var(--gold-soft); font-size: .95rem; }
 
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
+  section { padding: 72px 0; }
+  .section-head { text-align: center; max-width: 40rem; margin: 0 auto 36px; }
+  .section-head h2, .band h2, .areas h2, .contact h2 {
+    font-size: clamp(2rem, 4vw, 3.1rem); margin-bottom: 12px;
   }
+  .section-head p { color: var(--muted); font-size: 1.05rem; }
+
+  .grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
   .card {
-    background: var(--white);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 10px 28px rgba(42, 42, 42, .04);
+    background: var(--white); border: 1px solid var(--line); border-radius: 16px;
+    overflow: hidden; box-shadow: 0 10px 28px rgba(42, 42, 42, .05);
+    display: flex; flex-direction: column; height: 100%;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
   }
-  .card img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    display: block;
-    background: var(--cream-2);
-  }
-  .card-body { padding: 18px 18px 22px; }
-  .card h3 { font-size: 1.28rem; margin-bottom: 8px; color: var(--ink); }
+  .card-media { overflow: hidden; background: var(--cream-2); }
+  .card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .35s ease; }
+  .card-body { padding: 18px 18px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .card h3 { font-size: 1.45rem; }
   .card p { color: var(--muted); font-size: .98rem; }
+  .card:hover { transform: translateY(-4px); border-color: #d7c29a; box-shadow: 0 18px 40px rgba(42, 42, 42, .12); }
+  .card:hover img { transform: scale(1.04); }
+
+  .band {
+    background:
+      radial-gradient(700px 220px at 80% 0%, rgba(184, 134, 47, .28), transparent 55%),
+      linear-gradient(180deg, var(--deep), var(--deep-2));
+    color: var(--cream); text-align: center;
+  }
+  .band .eyebrow { color: var(--gold-soft); }
+  .band p { max-width: 36rem; margin: 0 auto 22px; color: #f4efe6; }
+  .band .cta-row { justify-content: center; }
+  .band :focus-visible { outline-color: var(--cream); }
+
+  .steps { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .step {
+    background: var(--white); border: 1px solid var(--line); border-radius: 16px;
+    padding: 22px 20px 24px; box-shadow: 0 10px 24px rgba(42, 42, 42, .04);
+  }
+  .step-no {
+    font-family: Fraunces, Palatino, Georgia, serif; color: var(--gold-deep);
+    font-size: 1.8rem; display: block; margin-bottom: 8px;
+  }
+  .step h3 { font-size: 1.35rem; margin-bottom: 8px; }
+  .step p { color: var(--muted); }
+
+  .gallery { background: var(--cream-2); }
+  .gallery-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .shot { position: relative; margin: 0; border-radius: 16px; overflow: hidden; min-height: 220px; }
+  .shot img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; }
+  .shot figcaption {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 36px 14px 12px; color: var(--cream); font-weight: 650;
+    background: linear-gradient(transparent, rgba(18, 18, 18, .78));
+  }
 
   .why { background: var(--white); }
-  .why-grid { display: grid; gap: 28px; }
-  .why-intro p { font-size: 1.08rem; max-width: 36rem; }
-  .reasons { list-style: none; }
+  .reasons { list-style: none; display: grid; grid-template-columns: 1fr; gap: 14px; }
   .reasons li {
-    padding: 16px 0 16px 16px;
-    border-left: 3px solid var(--gold);
-    border-bottom: 1px solid var(--line);
+    background: var(--cream); border-radius: 16px; padding: 22px 20px;
+    border-top: 3px solid var(--gold);
   }
-  .reasons li:first-child { padding-top: 0; }
-  .reasons h3 { font-size: 1.2rem; margin-bottom: 6px; }
+  .reasons h3 { font-size: 1.3rem; margin-bottom: 6px; }
   .reasons p { color: var(--muted); }
 
-  .areas { background: var(--cream-2); text-align: center; padding: 56px 0; }
+  .areas { background: var(--cream-2); text-align: center; padding: 64px 0; }
   .areas .eyebrow { margin-bottom: 8px; }
-  .areas h2.area-line {
-    font-family: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
-    font-size: clamp(1.8rem, 5vw, 3rem);
-    line-height: 1.2;
-    color: var(--ink);
-    margin-bottom: 0;
-  }
-  .areas p:last-child { color: var(--muted); margin-top: 12px; }
+  .areas h2 { max-width: 16ch; margin-inline: auto; }
+  .areas p { color: var(--muted); margin-top: 12px; }
 
   .contact {
-    background: var(--deep);
-    color: var(--cream);
+    background:
+      radial-gradient(800px 280px at 50% 0%, rgba(184, 134, 47, .3), transparent 60%),
+      var(--deep);
+    color: var(--cream); text-align: center;
   }
-  .contact h2 { color: var(--cream); }
   .contact .eyebrow { color: var(--gold-soft); }
-  .contact-lede {
-    color: #efe8dc;
-    max-width: 36rem;
-    margin-bottom: 28px;
-    font-size: 1.05rem;
-  }
+  .contact .contact-lead { color: #f4efe6; max-width: 36rem; margin: 0 auto 28px; }
   .contact-actions { display: grid; gap: 12px; }
   .contact-actions a {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    text-decoration: none;
-    color: var(--cream);
+    display: flex; flex-direction: column; gap: 4px; justify-content: center;
+    text-decoration: none; color: var(--cream); min-height: 92px; padding: 16px 18px;
+    border-radius: 14px; border: 1px solid rgba(232, 215, 176, .45);
     background: rgba(255, 255, 255, .05);
-    border: 1px solid rgba(232, 215, 176, .45);
-    border-radius: 12px;
-    padding: 16px 18px;
-    min-height: 84px;
-    justify-content: center;
   }
   .contact-actions a:hover { background: rgba(255, 255, 255, .1); }
   .contact-actions span {
-    font-size: .72rem;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: var(--gold-soft);
+    font-size: .74rem; letter-spacing: .14em; text-transform: uppercase;
+    font-weight: 700; color: var(--gold-soft);
   }
-  .contact-actions strong {
-    font-size: 1.08rem;
-    font-weight: 700;
-    overflow-wrap: anywhere;
-  }
+  .contact-actions strong { font-size: clamp(1.25rem, 3vw, 1.7rem); font-weight: 700; overflow-wrap: anywhere; }
   .contact :focus-visible { outline-color: var(--cream); }
 
-  footer {
-    background: var(--cream);
-    border-top: 1px solid var(--line);
-    padding: 32px 0 40px;
-  }
-  .footer-grid { display: grid; gap: 14px; }
-  .footer-brand img { height: 44px; width: auto; }
-  footer p { color: var(--muted); }
-  .footer-links { list-style: none; display: grid; gap: 6px; }
-  .footer-links a { color: var(--ink); font-weight: 700; }
+  footer { background: var(--cream); border-top: 1px solid var(--line); padding: 36px 0 28px; }
+  .footer-grid { display: grid; gap: 18px; text-align: center; }
+  .footer-brand img { height: 48px; width: auto; margin-inline: auto; }
+  .footer-links { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; }
+  .footer-links a { font-weight: 700; text-decoration: none; }
   .footer-links a:hover { color: var(--gold-deep); }
-  .legal { font-size: .9rem; }
+  .legal { color: var(--muted); font-size: .92rem; }
 
-  @media (min-width: 380px) {
-    .brand img { height: 46px; }
+  .call-dock {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 45;
+    display: grid; grid-template-columns: 1.4fr .8fr;
+    box-shadow: 0 -8px 24px rgba(28, 28, 28, .18);
   }
-  @media (min-width: 640px) {
-    .grid { grid-template-columns: 1fr 1fr; gap: 20px; }
-    .cta-row { flex-direction: row; flex-wrap: wrap; }
+  .call-dock a {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 58px; text-decoration: none; font-weight: 700; padding: 8px 10px;
+  }
+  .call-dock .dock-call { background: var(--gold-soft); color: var(--ink); }
+  .call-dock .dock-mail { background: var(--deep); color: var(--cream); }
+
+  @media (min-width: 700px) {
+    .brand img { height: 52px; }
+    .cta-row { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    .cta-row .btn { width: auto; }
+    .trust { grid-template-columns: 1fr 1fr 1fr; }
+    .trust article { border-top: 0; border-left: 1px solid rgba(232, 215, 176, .22); }
+    .trust article:first-child { border-left: 0; }
+    .grid, .reasons { grid-template-columns: 1fr 1fr; gap: 20px; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .shot:first-child { grid-column: 1 / -1; }
+    .shot:first-child img { aspect-ratio: 16 / 8; }
     .contact-actions { grid-template-columns: 1fr 1fr; }
-    .contact-actions strong { font-size: 1.2rem; }
-    .footer-grid {
-      grid-template-columns: 1.4fr 1fr;
-      align-items: end;
-    }
-    .legal { grid-column: 1 / -1; }
+    .footer-grid { grid-template-columns: 1fr 1fr; align-items: center; text-align: left; }
+    .footer-brand img { margin-inline: 0; }
+    .footer-links { justify-content: flex-end; }
+    .legal { grid-column: 1 / -1; text-align: center; }
   }
-  @media (min-width: 880px) {
-    .wrap { width: min(1120px, calc(100% - 48px)); }
+  @media (min-width: 980px) {
+    html { scroll-padding-top: 96px; }
     .header-bar {
       grid-template-columns: auto 1fr auto;
       grid-template-areas: "brand nav call";
       padding: 12px 0;
-      gap: 24px;
     }
-    .brand img { height: 62px; }
-    html { scroll-padding-top: 112px; }
-    nav ul { justify-content: flex-end; gap: 26px; }
-    nav a { font-size: 1rem; }
-    .call-label { display: none; }
+    nav ul { justify-content: flex-end; gap: 26px; flex-wrap: nowrap; }
     .call-number { display: inline; }
-    .header-call { padding: 8px 18px; }
-    .hero { min-height: 680px; align-items: center; }
-    .hero-media::after {
-      background: linear-gradient(90deg, rgba(18,18,18,.84) 0%, rgba(18,18,18,.62) 42%, rgba(18,18,18,.22) 100%);
-    }
-    .hero-copy { padding: 88px 0; }
-    .lede { font-size: 1.15rem; }
-    section { padding: 88px 0; }
-    .areas { padding: 72px 0; }
-    .why-grid { grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: start; }
+    .hero { min-height: 720px; align-items: center; }
+    .hero-copy { padding: 96px 0; }
+    .lede { font-size: 1.18rem; }
+    section { padding: 96px 0; }
     .grid { grid-template-columns: 1fr 1fr 1fr; }
-    .card-body { padding: 20px 20px 24px; }
-    .footer-brand img { height: 52px; }
+    .steps { grid-template-columns: 1fr 1fr 1fr; }
+    .gallery-grid { grid-template-columns: 1.3fr 1fr 1fr; }
+    .shot:first-child { grid-column: 1 / 2; grid-row: 1 / 3; }
+    .shot:first-child img { aspect-ratio: auto; height: 100%; min-height: 460px; }
+    .call-dock { display: none; }
+  }
+  @media (max-width: 979px) {
+    body { padding-bottom: 58px; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
+    .card, .card img { transition: none; }
+    .card:hover { transform: none; }
+    .card:hover img { transform: none; }
   }
 </style>
 <script>
@@ -396,24 +350,22 @@
 <header>
   <div class="wrap header-bar">
     <a class="brand" href="#top">
-      <picture>
-        <source srcset="assets/images/logo.webp" type="image/webp">
-        <img src="assets/images/logo.png" alt="Grand Scaping, Landscaping N.E" width="1200" height="223">
-      </picture>
-    </a>
-    <a class="header-call" href="tel:+441642040493" aria-label="Call 01642 040493">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      <span class="call-label">Call</span>
-      <span class="call-number">01642 040493</span>
+      <img src="assets/images/logo.webp" alt="Grand Scaping, Landscaping N.E" width="1200" height="223">
     </a>
     <nav aria-label="Page">
       <ul>
         <li><a href="#services">Services</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#why">Why us</a></li>
-        <li><a href="#areas">Areas</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <a class="header-call" href="tel:+441642040493">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Call</span>
+      <span class="call-number">01642 040493</span>
+    </a>
   </div>
 </header>
 
@@ -430,62 +382,89 @@
         fetchpriority="high"
         decoding="async">
     </div>
-    <div class="wrap hero-copy">
+    <div class="hero-copy">
       <p class="eyebrow">Landscaping N.E</p>
       <h1>Driveways, patios and gardens across Teesside.</h1>
       <p class="lede">Grand Scaping installs block paving, resin and gravel driveways, patios, fencing, pergolas, decking and turf for homes and businesses across Teesside and the North East.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="tel:+441642040493">Call 01642 040493</a>
-        <a class="btn btn-ghost" href="mailto:andy@grandscaping.co.uk">Email us</a>
+        <a class="btn btn-ghost" href="mailto:andy@grandscaping.co.uk">Email andy@grandscaping.co.uk</a>
       </div>
     </div>
   </section>
+
+  <div class="trust" aria-label="At a glance">
+    <article>
+      <strong>Homes and businesses</strong>
+      <p>Domestic and commercial driveways</p>
+    </article>
+    <article>
+      <strong>Teesside and the North East</strong>
+      <p>Local landscaping and driveway work</p>
+    </article>
+    <article>
+      <strong>Andy and Lee</strong>
+      <p>You speak to the people who run it</p>
+    </article>
+  </div>
 
   <section id="services">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Services</p>
         <h2>What we install</h2>
-        <p>Driveways for domestic and commercial clients, plus patios, paving, fencing, pergolas, decking and turf. General landscaping is part of the same work when a garden needs levels, lawn and hard surfaces together.</p>
+        <p>Six kinds of work, plus general landscaping when a garden needs levels, lawn and hard surfaces together.</p>
       </div>
       <div class="grid">
         <article class="card" id="driveways">
-          <img src="assets/images/block-paving.webp" width="800" height="600" alt="Charcoal block paving driveway in a herringbone pattern outside a brick house" loading="lazy" decoding="async">
+          <div class="card-media">
+            <img src="assets/images/block-paving.webp" width="800" height="600" alt="Charcoal block paving driveway in a herringbone pattern outside a brick house" loading="lazy" decoding="async">
+          </div>
           <div class="card-body">
             <h3>Driveways</h3>
             <p>Block paving, resin and gravel, for homes and commercial premises. The base, edges and falls are set out so the finished drive is a clear place to park.</p>
           </div>
         </article>
         <article class="card" id="patios">
-          <img src="assets/images/porcelain.webp" width="800" height="600" alt="Large light grey porcelain patio slabs with outdoor furniture at the back of a house" loading="lazy" decoding="async">
+          <div class="card-media">
+            <img src="assets/images/porcelain.webp" width="800" height="600" alt="Large light grey porcelain patio slabs with outdoor furniture at the back of a house" loading="lazy" decoding="async">
+          </div>
           <div class="card-body">
             <h3>Patios and paving</h3>
             <p>Porcelain and sandstone patios, plus paths and paved links between the house, the drive and the garden.</p>
           </div>
         </article>
         <article class="card" id="fencing">
-          <img src="assets/images/fencing.webp" width="800" height="600" alt="Horizontal slatted Venetian-style fence panels along a lawn" loading="lazy" decoding="async">
+          <div class="card-media">
+            <img src="assets/images/fencing.webp" width="800" height="600" alt="Horizontal slatted Venetian-style fence panels along a lawn" loading="lazy" decoding="async">
+          </div>
           <div class="card-body">
             <h3>Fencing</h3>
             <p>Decorative and boundary fencing, including Venetian fencing, for privacy and a tidy edge to the garden.</p>
           </div>
         </article>
         <article class="card" id="pergolas">
-          <img src="assets/images/pergola.webp" width="800" height="600" alt="Anthracite aluminium pergola with a louvred roof over a patio" loading="lazy" decoding="async">
+          <div class="card-media">
+            <img src="assets/images/pergola.webp" width="800" height="600" alt="Anthracite aluminium pergola with a louvred roof over a patio" loading="lazy" decoding="async">
+          </div>
           <div class="card-body">
             <h3>Aluminium pergolas</h3>
             <p>A slim aluminium pergola adds shade and structure over a patio, and gives the seating area a clear finish.</p>
           </div>
         </article>
         <article class="card" id="decking">
-          <img src="assets/images/decking.webp" width="800" height="600" alt="Composite decking terrace with steps down to a lawn" loading="lazy" decoding="async">
+          <div class="card-media">
+            <img src="assets/images/decking.webp" width="800" height="600" alt="Composite decking terrace with steps down to a lawn" loading="lazy" decoding="async">
+          </div>
           <div class="card-body">
             <h3>Decking</h3>
             <p>Decking creates a level terrace for sitting, including where the garden drops away from the house. It can stand alone or sit beside a patio.</p>
           </div>
         </article>
         <article class="card" id="turf">
-          <img src="assets/images/turf.webp" width="800" height="600" alt="Even artificial grass lawn edged against a pale patio" loading="lazy" decoding="async">
+          <div class="card-media">
+            <img src="assets/images/turf.webp" width="800" height="600" alt="Even artificial grass lawn edged against a pale patio" loading="lazy" decoding="async">
+          </div>
           <div class="card-body">
             <h3>Turf and artificial grass</h3>
             <p>Natural turf where you want a living lawn, or artificial grass where you want green underfoot with less mowing. The ground is prepared so the surface lies flat.</p>
@@ -495,9 +474,79 @@
     </div>
   </section>
 
+  <section class="band" aria-label="Call or email">
+    <div class="wrap">
+      <p class="eyebrow">Start here</p>
+      <h2>Talk to us about the job</h2>
+      <p>Call or email Andy with the driveway, patio or garden you have in mind. We cover Teesside and the North East.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="tel:+441642040493">Call 01642 040493</a>
+        <a class="btn btn-ghost" href="mailto:andy@grandscaping.co.uk">Email us</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How it works</p>
+        <h2>From the first call to the finished job</h2>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <span class="step-no">01</span>
+          <h3>Enquire</h3>
+          <p>Call or email and tell us what you want done. You will be speaking to Andy or Lee.</p>
+        </article>
+        <article class="step">
+          <span class="step-no">02</span>
+          <h3>Visit and quote</h3>
+          <p>We look at the space and talk through the work and a quote before anything is built.</p>
+        </article>
+        <article class="step">
+          <span class="step-no">03</span>
+          <h3>Build</h3>
+          <p>The driveway, patio, fence or garden is installed, with the base and edges set out as part of the job.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Finishes</p>
+        <h2>Surfaces we install</h2>
+        <p>Resin, gravel, sandstone, paving and planted gardens sit alongside the six services above.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="shot">
+          <img src="assets/images/landscaping.webp" width="800" height="600" alt="Finished back garden with a lawn, planted borders and a paved seating area" loading="lazy" decoding="async">
+          <figcaption>General landscaping</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/images/resin.webp" width="800" height="600" alt="Smooth grey and honey resin driveway in front of a modern brick and render house" loading="lazy" decoding="async">
+          <figcaption>Resin driveways</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/images/gravel.webp" width="800" height="600" alt="Golden gravel driveway with stone edging beside a brick house and a planted border" loading="lazy" decoding="async">
+          <figcaption>Gravel driveways</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/images/sandstone.webp" width="800" height="600" alt="Buff sandstone patio slabs beside a lawn and planted borders" loading="lazy" decoding="async">
+          <figcaption>Sandstone patios</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/images/paving.webp" width="800" height="600" alt="Grey paving slab path running alongside a brick house" loading="lazy" decoding="async">
+          <figcaption>Paving</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <section class="why" id="why">
-    <div class="wrap why-grid">
-      <div class="why-intro">
+    <div class="wrap">
+      <div class="section-head">
         <p class="eyebrow">About</p>
         <h2>Why choose us</h2>
         <p>Grand Scaping is a landscaping and driveways business on Teesside, run by Andy (A. J. Cook) and Lee.</p>
@@ -513,7 +562,7 @@
         </li>
         <li>
           <h3>One place to start</h3>
-          <p>Block paving, resin, gravel, patios, fencing, pergolas, decking, turf and general landscaping.</p>
+          <p>Driveways, patios, fencing, pergolas, decking, turf and general landscaping.</p>
         </li>
         <li>
           <h3>Speak to Andy or Lee</h3>
@@ -526,8 +575,20 @@
   <section class="areas" id="areas">
     <div class="wrap">
       <p class="eyebrow">Area covered</p>
-      <h2 class="area-line">Teesside and the North East</h2>
+      <h2>Teesside and the North East</h2>
       <p>Landscaping and driveways for homes and commercial premises across the area.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">Get in touch</p>
+      <h2>Call or send the details</h2>
+      <p>01642 040493 or andy@grandscaping.co.uk. Tell us about the space and we will take it from there.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="tel:+441642040493">Call 01642 040493</a>
+        <a class="btn btn-ghost" href="mailto:andy@grandscaping.co.uk">Email andy@grandscaping.co.uk</a>
+      </div>
     </div>
   </section>
 
@@ -535,7 +596,7 @@
     <div class="wrap">
       <p class="eyebrow">Contact</p>
       <h2>Call or email</h2>
-      <p class="contact-lede">Tell us about the driveway, patio or garden you have in mind. We cover Teesside and the North East.</p>
+      <p class="contact-lead">Tell us about the driveway, patio or garden you have in mind. We cover Teesside and the North East.</p>
       <div class="contact-actions">
         <a href="tel:+441642040493">
           <span>Phone</span>
@@ -558,9 +619,16 @@
     <ul class="footer-links">
       <li><a href="tel:+441642040493">01642 040493</a></li>
       <li><a href="mailto:andy@grandscaping.co.uk">andy@grandscaping.co.uk</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#areas">Areas</a></li>
     </ul>
     <p class="legal">&copy; 2026 Grand Scaping. Landscaping and driveways across Teesside and the North East.</p>
   </div>
 </footer>
+
+<div class="call-dock">
+  <a class="dock-call" href="tel:+441642040493">Call 01642 040493</a>
+  <a class="dock-mail" href="mailto:andy@grandscaping.co.uk">Email</a>
+</div>
 </body>
 </html>
